@@ -10,9 +10,12 @@ const server = Bun.serve({
   port: 8080
 });
 
+// The arm64 build on GitHub Actions is very slow
+// lets increase the timeout to avoid hitting it
 const browser = await puppeteer.launch({
   headless: "new",
-  args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  timeout: 1800_000
 });
 
 const page = await browser.newPage();
