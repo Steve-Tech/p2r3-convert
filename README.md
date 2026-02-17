@@ -35,6 +35,12 @@ After this is done (indicated by a `Built initial format list` message in the co
 
 ### Docker (prebuilt image)
 
+You can run the prebuilt image from the GitHub Container Registry with the following command:
+
+```bash
+docker run -d -p 8080:80 --name convert ghcr.io/p2r3/convert:latest
+```
+
 Docker compose files live in the `docker/` directory, so run compose with `-f` from the repository root:
 
 ```bash
